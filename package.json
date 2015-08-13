@@ -1,0 +1,37 @@
+{
+  "name": "github-issues",
+  "version": "1.0.0",
+  "description": "let's implement the github issues view",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
+  "scripts": {
+    "lint": "eslint src/ bin/",
+    "build:js": "browserify src/index.js | uglifyjs -mc > dist/bundle.js",
+    "build": "npm run clean && npm run build:js && cp -r public/ dist",
+    "watch:js": "watchify src/index.js -o dist/bundle.js -dv",
+    "watch:public": "./bin/uatu.js",
+    "watch": "npm run clean && (npm run watch:js & npm run watch:public)",
+    "clean": "rm -rf dist/*",
+    "dev": "npm run watch & ecstatic dist/",
+    "start": "npm run build && ecstatic dist/"
+  },
+  "author": "Myles Borins <myles.borins@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "chalk": "^1.1.0",
+    "chokidar": "^1.0.5",
+    "ecstatic": "^0.8.0",
+    "mkdirp": "^0.5.1",
+    "watchify": "^3.3.1"
+  },
+  "dependencies": {
+    "browserify": "^11.0.1",
+    "eslint": "^1.1.0",
+    "react": "^0.13.3",
+    "reactify": "^1.1.1",
+    "uglify-js": "^2.4.24"
+  }
+}
