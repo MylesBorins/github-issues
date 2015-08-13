@@ -34,17 +34,23 @@ var IssueList = React.createClass({
 });
 
 var IssueView = React.createClass({
-  getInitialState: function () {
-    return {data: []}
-  },
-  componentDidMount: function () {
-    github.issues(this.props.repo, function (err, issues) {
+  loadIssuesFromServer: function (page) {
+    github.issues(this.props.repo, page, function (err, issues) {
       if (err) {
+        /*eslint-disable no-console */
         return console.log(new Error(err));
+        /*eslint-enable no-console */
       }
-      console.log(issues);
       this.setState({data: issues});
     }.bind(this));
+  },
+  getInitialState: function () {
+    return {
+      data: []
+    };
+  },
+  componentDidMount: function () {
+    this.loadIssuesFromServer(1);
   },
   render: function() {
     return (
