@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/*eslint no-console:0 */
 'use strict';
 
 var path = require('path');
@@ -16,7 +17,7 @@ var watcher = chokidar.watch(from);
 var errorMessage = chalk.red('error: ');
 
 function errorHandler(err) {
-  console.error(error, new Error(err));
+  console.error(errorMessage, new Error(err));
   watcher.close();
   process.exit(1);
 }
