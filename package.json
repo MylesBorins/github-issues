@@ -19,7 +19,7 @@
     "watch": "npm run clean && (npm run watch:js & npm run watch:public)",
     "clean": "rm -rf dist/*",
     "dev": "npm run watch & ecstatic dist/",
-    "start": "npm run build && ecstatic dist/"
+    "start": "npm run build && cat dist/bundle.js | gzip > dist/bundle.js.gz && ecstatic dist/ --gzip=true"
   },
   "author": "Myles Borins <myles.borins@gmail.com>",
   "license": "MIT",
