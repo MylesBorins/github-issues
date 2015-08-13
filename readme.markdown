@@ -53,6 +53,8 @@ This project uses the node module husky to wire some git hooks with npm scripts.
 
 * I wrote a small wrapper around the [xhr][xhr] module to do the restful call to the github api
 
+* There is a delay while we wait for the latest api data from google. It could be really nice if we could animate in the issues after a load time... or have some static assets already there
+
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
 [use-tape]: http://ponyfoo.com/articles/testing-javascript-modules-with-tape "Testing JavaScript Modules with Tape"
