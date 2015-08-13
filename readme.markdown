@@ -3,7 +3,10 @@
 
 ##Dev
 
-```npm run dev```
+```bash
+$ npm run dev
+ecstatic serving dist/ at http://0.0.0.0:8000
+```
 
 * Start Watchify (browserify on changes to js)
 * Start Uatu (copy assets from public to dist on change)
@@ -12,7 +15,11 @@
 
 ##Prod
 
-```npm start```
+```
+$ npm start
+ecstatic serving dist/ at http://0.0.0.0:8000
+
+```
 
 * build project
 * uglify and gzip js
