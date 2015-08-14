@@ -7,9 +7,12 @@ var IssueList = React.createClass({
   render: function () {
     var issueNodes = this.props.data.map(function (issue) {
       return (
-        <Issue key={issue.id} user={issue.user} title={issue.title} url={issue.html_url}>
-          {issue.body}
-        </Issue>
+        <div key={issue.id}>
+          <Issue issueNumber={issue.number} issueURL={issue.url} user={issue.user} title={issue.title} url={issue.html_url} labels={issue.labels}>
+            {issue.body}
+          </Issue>
+          <hr />
+        </div>
       );
     });
     return (

@@ -2,26 +2,47 @@
   padding: 25px
   .issueList
     width: 70%
+    min-width: 600px;
     centerHorizontal()
+    hr
+      width: 20%
     .issue
-      margin: 25px
-      outline-style: solid
-      outline-color: $foreground-primary
-      .top
-        padding-top: 25px
-        padding-left: 25px
+      position: relative
+      margin: 10px
+      padding: 25px
+      // outline-style: solid
+      // outline-width: 1px
+      // outline-color: $foreground-primary
+      // background-color: #faeaeb
+      // border-radius:1px
+
+      .avatar
+        margin-top: 12.5px
+        border-radius: 10px
+        width: 100px
+        height: 100px
+        
+      // .username
+
+      .title
+        position: absolute
+        top: 0px
+        left: 175px
         padding-right: 25px
-        background-color: $foreground-secondary
+        padding-top: 2em
+        margin-bottom: 1em
 
-        .avatar
-          width: 50px
-          height: 50px
+      .issueNumber
+        position:absolute
+        right: 25px
+        top: 0px
+        padding-top: 0.5em
 
-        // .issueAuthor
-
-        // .title
+      
       .content
+        width: 65%
         padding: 25px
+        border-radius: 20px
         centerHorizontal()
         
-        background-color: #f2ffff
+        background-color: #EAEAEA
