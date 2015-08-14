@@ -1,70 +1,9 @@
 // npm modules
 var React = require('react');
 
-var TopBar = React.createClass({
-  render: function () {
-    return (
-      <div className='topbar'>
-        <a href={this.props.issueURL}># {this.props.issueNumber}</a>
-      </div>
-    );
-  }
-});
-
-var UserData = React.createClass({
-  render: function () {
-    return (
-      <div className='user-data'>
-        <h4 className='username'>
-          <a href={this.props.userURL} >{'@' + this.props.username}</a>
-        </h4>
-        <a href={this.props.userURL}><img className='avatar' src={this.props.avatarURL + '&s=75'} alt={'avatar of ' + this.props.username} ></img></a>
-      </div>
-    );
-  }
-});
-
-var Title = React.createClass({
-  render: function () {
-    return (
-      <h2 className='title'>
-        <a href={this.props.url}>{this.props.title}</a>
-      </h2>
-    );
-  }
-});
-
-var Content = React.createClass({
-  prepareContent: function (content) {
-    // freaking NAIVE
-    var sliced = content.slice(0, 139);
-    if (content !== sliced) {
-      sliced += '...';
-    }
-    // TODO 
-    //  finish word gracefully
-    //  turn @username into link
-    return <a href={this.props.url}>{sliced}</a>;
-  },
-  render: function () {
-    var labelNodes = this.props.labels.map(function (label, i) {
-      return (
-        <div key={10000 + i} className='label' style={{backgroundColor: '#' + label.color}}>
-          <a href={label.url}>{label.name}</a>
-        </div>
-      );
-    });
-    return (
-      <div className='content'>
-        <Title url={this.props.url} title={this.props.title}/>
-        {this.prepareContent(this.props.children)}
-        <div className='labels'>
-          {labelNodes}
-        </div>
-      </div>
-    );
-  }
-});
+var TopBar = require('./TopBar');
+var UserData = require('./UserData');
+var Content = require('./Content');
 
 var Issue = React.createClass({
   render: function () {
