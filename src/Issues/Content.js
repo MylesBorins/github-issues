@@ -24,6 +24,7 @@ var Content = React.createClass({
   },
   render: function () {
     var labelNodes = this.props.labels.map(function (label, i) {
+      label.url = label.url.replace('https://api.github.com/repos/', 'https://github.com/');
       return (
         <div key={10000 + i} className='label' style={{backgroundColor: '#' + label.color}}>
           <a href={label.url}>{label.name}</a>
