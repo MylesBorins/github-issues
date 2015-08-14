@@ -14,7 +14,7 @@
     "test:watch": "nodemon --ignore node_modules/ -e js,json --exec 'npm test'",
     "tape": "browserify test/*.js | tap-closer | smokestack | tap-spec",
     "lint": "eslint src/ bin/ test/",
-    "build:js": "browserify src/index.js | uglifyjs -mc > dist/bundle.js",
+    "build:js": "browserify -v src/index.js | uglifyjs -mc > dist/bundle.js",
     "build:stylus": "stylus ./src/main.styl -o ./dist/main.css --compress",
     "build": "npm run clean && npm run build:js && build:stylus && cp -r public/ dist",
     "watch:js": "watchify src/index.js -o dist/bundle.js -dv",

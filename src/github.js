@@ -1,4 +1,7 @@
 var path = require('path');
+var url = require('url');
+var querystring = require('querystring');
+
 var xhr = require('xhr');
 
 var base = 'https://api.github.com/';
@@ -30,7 +33,12 @@ function issuePages(project, cb) {
     if (err) {
       return cb(err);
     }
-    return cb(null, res.body);
+    var link = res.headers.link;
+    // here's the magic
+    var lastLink = link.split(',')[1].split(';')[0].slice(2, -1);
+    var query = url.parse(lastLink).query;
+    var count = querystring.parse(query).page;
+    return cb(null, count);
   });
 }
 

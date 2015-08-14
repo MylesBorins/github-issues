@@ -8,11 +8,12 @@ var github = require('./github');
 var Root = React.createClass({
   handleClickEvent: function (page) {
     this.setState({
-      page: page
+      currentPage: page
     }, this.loadIssuesFromServer);
   },
   loadIssuesFromServer: function () {
-    github.issues(this.props.org + '/' + this.props.repo, this.state.page, function (err, issues) {
+    // This data should be cached... it should happen in the github module
+    github.issues(this.props.org + '/' + this.props.repo, this.state.currentPage, function (err, issues) {
       if (err) {
         /*eslint-disable no-console */
         return console.log(new Error(err));
@@ -21,14 +22,23 @@ var Root = React.createClass({
       this.setState({data: issues});
     }.bind(this));
   },
+  getCountOfIssues: function () {
+    github.issuePages(this.props.org + '/' + this.props.repo, function (err, count) {
+      this.setState({
+        lastPage: count
+      });
+    }.bind(this));
+  },
   getInitialState: function () {
     return {
       data: [],
-      page: 1
+      currentPage: 1,
+      lastPage: 1
     };
   },
   componentDidMount: function () {
     this.loadIssuesFromServer();
+    this.getCountOfIssues();
   },
   render: function () {
     var basePath = this.props.org + '/' + this.props.repo;
@@ -36,7 +46,7 @@ var Root = React.createClass({
       <div id='root'>
         <Title org={this.props.org} repo={this.props.repo} />
         <Issues repo={basePath} data={this.state.data}/>
-        <Paginator onClickEvent={this.handleClickEvent} repo={basePath} />
+        <Paginator onClickEvent={this.handleClickEvent} repo={basePath} currentPage={this.state.currentPage} lastPage={this.state.lastPage}/>
       </div>
     );
   }

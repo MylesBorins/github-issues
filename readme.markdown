@@ -55,8 +55,12 @@ This project uses the node module husky to wire some git hooks with npm scripts.
 
 * There is a delay while we wait for the latest api data from google. It could be really nice if we could animate in the issues after a load time... or have some static assets already there
 
+* I currently have hard coded github secrets for an app I created... this is to simplify stuff so i can move forward. to be refactored time permitting
+
+* The github module should cache results for at least a couple minutes (perhaps even poll)
+
+* Flash at begining... yuk
+
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
 [use-tape]: http://ponyfoo.com/articles/testing-javascript-modules-with-tape "Testing JavaScript Modules with Tape"
-
-* I currently have hard coded github secrets for an app I created... this is to simplify stuff so i can move forward. to be refactored time permitting
