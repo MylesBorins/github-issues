@@ -1,15 +1,19 @@
+// npm module
 var React = require('react');
 
+// local modules
 var Title = require('./Title');
 var Issues = require('./Issues');
 var Paginator = require('./Paginator');
 var github = require('./github');
 
 var Root = React.createClass({
-  handleClickEvent: function (page) {
-    this.setState({
-      currentPage: page
-    }, this.loadIssuesFromServer);
+  getInitialState: function () {
+    return {
+      data: [],
+      currentPage: 1,
+      lastPage: 1
+    };
   },
   loadIssuesFromServer: function () {
     // This data should be cached... it should happen in the github module
@@ -29,16 +33,14 @@ var Root = React.createClass({
       });
     }.bind(this));
   },
-  getInitialState: function () {
-    return {
-      data: [],
-      currentPage: 1,
-      lastPage: 1
-    };
-  },
   componentDidMount: function () {
     this.loadIssuesFromServer();
     this.getCountOfIssues();
+  },
+  handleClickEvent: function (page) {
+    this.setState({
+      currentPage: page
+    }, this.loadIssuesFromServer);
   },
   render: function () {
     var basePath = this.props.org + '/' + this.props.repo;

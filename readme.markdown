@@ -38,6 +38,8 @@ This project has a series of unit(ish) tests. Currently API calls are not stubbe
 
 The tests are all written in tape. The blog post [Testing JavaScript Modules with Tape][use-tape] does a great job of explaining why tape is awesome!
 
+There currently no tests written for the React components. I am quite sure this would be reasonably simple to test, render a react component with certain props and verify the output. If I have extra time I will revisit
+
 ##Git Hooks
 
 This project uses the node module husky to wire some git hooks with npm scripts. In order to commit the code must lint, in order to push the code must pass the entire test suite.

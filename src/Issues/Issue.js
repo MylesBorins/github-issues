@@ -1,3 +1,4 @@
+// npm modules
 var React = require('react');
 
 var TopBar = React.createClass({
@@ -46,10 +47,20 @@ var Content = React.createClass({
     return <a href={this.props.url}>{sliced}</a>;
   },
   render: function () {
+    var labelNodes = this.props.labels.map(function (label, i) {
+      return (
+        <div key={10000 + i} className='label' style={{backgroundColor: '#' + label.color}}>
+          <a href={label.url}>{label.name}</a>
+        </div>
+      );
+    });
     return (
       <div className='content'>
         <Title url={this.props.url} title={this.props.title}/>
         {this.prepareContent(this.props.children)}
+        <div className='labels'>
+          {labelNodes}
+        </div>
       </div>
     );
   }
@@ -61,7 +72,7 @@ var Issue = React.createClass({
       <div className='issue'>
         <TopBar issueURL={this.props.issueURL} issueNumber={this.props.issueNumber}/>
         <UserData avatarURL={this.props.user.avatar_url} userURL={this.props.user.html_url} username={this.props.user.login} />
-        <Content url={this.props.url} title={this.props.title}>
+        <Content url={this.props.url} title={this.props.title} labels={this.props.labels}>
           {this.props.children}
         </Content>
       </div>

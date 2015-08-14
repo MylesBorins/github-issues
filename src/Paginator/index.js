@@ -1,16 +1,7 @@
+// npm modules
 var React = require('react');
 
 var Arrow = React.createClass({
-  handleClick: function () {
-    var pageCount;
-    if (this.props.action === 'next') {
-      pageCount = this.props.currentPage + 1;
-    }
-    else if (this.props.action === 'prev') {
-      pageCount = this.props.currentPage - 1;
-    }
-    this.props.onClickEvent(pageCount);
-  },
   render: function () {
     var arrow;
     var show;
