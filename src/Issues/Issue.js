@@ -4,17 +4,20 @@ var Issue = React.createClass({
   render: function () {
     return (
       <div className='issue'>
-        <img src={this.props.user.avatar_url + '&s=100'} alt={'avatar of ' + this.props.user.login} className='avatar'></img>
-        
-        <a href={this.props.user.html_url} className='issueAuthor'>
-          <h4>{'@' + this.props.user.login}</h4>
-        </a>
-        
-        <a href={this.props.url} className='title'>
-          <h2>{this.props.title}</h2>
-        </a>
-        {/* this.props.children */}
-        
+        <div className='top'>
+          <img src={this.props.user.avatar_url + '&s=50'} alt={'avatar of ' + this.props.user.login} className='avatar'></img>
+
+          <h4 className='issueAuthor'>
+            <a href={this.props.user.html_url} >{'@' + this.props.user.login}</a>
+          </h4>
+
+          <h3 className='title'>
+            <a href={this.props.url}>{this.props.title}</a>
+          </h3>
+        </div>
+        <div className='content'>
+          { this.props.children.slice(0,139) }
+        </div>
       </div>
     );
   }

@@ -25,7 +25,6 @@ var Issues = React.createClass({
   render: function() {
     return (
       <div className='issueBox'>
-        <h1>Issues</h1>
         <IssueList data={this.state.data} />
       </div>
     );

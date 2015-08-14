@@ -1,18 +1,27 @@
-.issueList
-  .issue
-    a:hover
-      color: #4078c0;
-    a
-      text-decoration: none;
-      color: #000;
-      &.issueAuthor {
-      
-      }
-      &.title {
+.issueBox
+  padding: 25px
+  .issueList
+    width: 70%
+    centerHorizontal()
+    .issue
+      margin: 25px
+      outline-style: solid
+      outline-color: $foreground-primary
+      .top
+        padding-top: 25px
+        padding-left: 25px
+        padding-right: 25px
+        background-color: $foreground-secondary
+
+        .avatar
+          width: 50px
+          height: 50px
+
+        // .issueAuthor
+
+        // .title
+      .content
+        padding: 25px
+        centerHorizontal()
         
-      }
-    .avatar
-      size 100px 100px
-    p {
-      
-    }
+        background-color: #f2ffff
