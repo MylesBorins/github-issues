@@ -45,7 +45,8 @@ There currently no tests written for the React components. I am quite sure this 
 This project uses the node module husky to wire some git hooks with npm scripts. In order to commit the code must lint, in order to push the code must lint. This will catch all sorts of silly errors early :D.
 
 ####Notes 
-* The seed of this project was heavily inspired by https://github.com/substack/react-starter
+* Is peeked at a seed project by Substack to get my bearings in the beginning https://github.com/substack/react-starter
+  * the npm script stack of this project is quite different now.
 
 * It is worth noting I have never written React Before...
 
@@ -54,16 +55,19 @@ This project uses the node module husky to wire some git hooks with npm scripts.
   * changed "comment" to "issue" and quite a bit of work was done
 
 * I wrote a small wrapper around the [xhr][xhr] module to do the restful call to the github api
+  * It has the same basic api layer as request, so this module could in theory work just as nicely on the server outside a react app.
 
-* There is a delay while we wait for the latest api data from google. It could be really nice if we could animate in the issues after a load time... or have some static assets already there
+* There is a delay while we wait for the latest api data from google. It could be really nice if we could animate in the issues after a load time... or have some static assets already there (loading screen)
 
-* I currently have hard coded github secrets for an app I created... this is to simplify stuff so i can move forward. to be refactored time permitting
+* I currently have hard coded github secrets for an app I created... this is to simplify stuff so i can move forward. Please be respectful of the token being included. I want to make sure it just works for you with minimal setup
 
-* The github module should cache results for at least a couple minutes (perhaps even poll)
+* The github module should cache results rather than hitting the api every time. Offline storage could be a good way to cache this as well, perhaps with some sort of polling model to invalidate the cache.
 
-* Flash at begining... yuk
+* I'm finding the way I'm handling event propagation to be really gross... THERE HAS TO BE A BETTER WAY. I would love to learn some patterns to make some of the things I've been doing less painful.
 
-* I'm finding the way I'm handling event propagation to be really gross... THERE HAS TO BE A BETTER WAY
+* I have gotten most of the requirements done from the PDF document. One glaring missing piece is that I did not implement that "@user" highlighting. NPM has so man y false positives right now using @ for scoped modules the entire thing overwhelmed me a bit to manage in this pass.
+
+* I think I could work on the naming and separation of my components a bit
 
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
