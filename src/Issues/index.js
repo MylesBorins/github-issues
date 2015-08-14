@@ -1,6 +1,7 @@
 var React = require('react');
 
 var Issue = require('./Issue');
+var Paginator = require('../Paginator');
 
 var Issues = React.createClass({
   render: function () {
@@ -10,8 +11,11 @@ var Issues = React.createClass({
       );
     });
     return (
-      <div className='issueList'>
-        {issueNodes}
+      <div className='main-view'>
+        <div className='issueList'>
+          {issueNodes}
+        </div>
+        <Paginator onClickEvent={this.props.onClickEvent} repo={this.props.basePath} currentPage={this.props.currentPage} lastPage={this.props.lastPage}/>
       </div>
     );
   }

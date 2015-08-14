@@ -5,7 +5,7 @@ var React = require('react');
 var Title = require('./Title');
 var Issues = require('./Issues');
 // var Issue = require('./Issues/Issue');
-var Paginator = require('./Paginator');
+
 var github = require('./github');
 
 var Root = React.createClass({
@@ -13,7 +13,8 @@ var Root = React.createClass({
     return {
       data: [],
       currentPage: 1,
-      lastPage: 1
+      lastPage: 1,
+      abridged: true
     };
   },
   loadIssuesFromServer: function () {
@@ -45,13 +46,16 @@ var Root = React.createClass({
   },
   render: function () {
     var basePath = this.props.org + '/' + this.props.repo;
+    // var content;
+    //
+    // if (this.state.abridged) {
+    //   content =
+    // }
+
     return (
       <div id='root'>
         <Title org={this.props.org} repo={this.props.repo} />
-        <div>
-          <Issues repo={basePath} data={this.state.data}/>
-          <Paginator onClickEvent={this.handleClickEvent} repo={basePath} currentPage={this.state.currentPage} lastPage={this.state.lastPage}/>
-        </div>
+        <Issues repo={basePath} data={this.state.data} onClickEvent={this.handleClickEvent} repo={basePath} currentPage={this.state.currentPage} lastPage={this.state.lastPage} />
       </div>
     );
   }
