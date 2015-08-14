@@ -12,14 +12,14 @@ var Title = React.createClass({
 
 var Content = React.createClass({
   prepareContent: function (content) {
-    // freaking NAIVE
-    var sliceTo = content.indexOf(' ', 140);
-    if (sliceTo !== -1) {
-      content = content.slice(0, sliceTo);
-    }
     // TODO 
-    //  finish word gracefully
     //  turn @username into link
+    if (this.props.abridged) {
+      var sliceTo = content.indexOf(' ', 140);
+      if (sliceTo !== -1) {
+        content = content.slice(0, sliceTo);
+      }
+    }
     return <a href={this.props.url}>{content}</a>;
   },
   render: function () {

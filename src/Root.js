@@ -4,6 +4,7 @@ var React = require('react');
 // local modules
 var Title = require('./Title');
 var Issues = require('./Issues');
+// var Issue = require('./Issues/Issue');
 var Paginator = require('./Paginator');
 var github = require('./github');
 
@@ -47,8 +48,10 @@ var Root = React.createClass({
     return (
       <div id='root'>
         <Title org={this.props.org} repo={this.props.repo} />
-        <Issues repo={basePath} data={this.state.data}/>
-        <Paginator onClickEvent={this.handleClickEvent} repo={basePath} currentPage={this.state.currentPage} lastPage={this.state.lastPage}/>
+        <div>
+          <Issues repo={basePath} data={this.state.data}/>
+          <Paginator onClickEvent={this.handleClickEvent} repo={basePath} currentPage={this.state.currentPage} lastPage={this.state.lastPage}/>
+        </div>
       </div>
     );
   }
