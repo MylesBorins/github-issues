@@ -15,7 +15,6 @@ var Root = React.createClass({
       currentPage: 1,
       lastPage: 1,
       abridged: true,
-      issueNumber: 5599,
       issueData: {}
     };
   },
@@ -33,6 +32,14 @@ var Root = React.createClass({
       this.setState({data: issues});
     }.bind(this));
   },
+  getCommentsFromServer: function () {
+    github.comments(this.state.commentURL, function (err, comments) {
+      this.setState({
+        comments: comments,
+        abridged: !this.state.abridged
+      });
+    }.bind(this));
+  },
   getIssueFromServer: function () {
     github.issue('npm/npm', this.state.issueNumber.toString(), function (err, issue) {
       if (err) {
@@ -42,8 +49,9 @@ var Root = React.createClass({
       }
       issue.url = issue.url.replace('https://api.github.com/repos/', 'https://github.com/');
       this.setState({
-        issueData: issue
-      });
+        issueData: issue,
+        commentURL: issue.comments_url
+      }, this.getCommentsFromServer);
     }.bind(this));
   },
   getCountOfIssues: function () {
@@ -54,7 +62,6 @@ var Root = React.createClass({
     }.bind(this));
   },
   componentDidMount: function () {
-    this.getIssueFromServer();
     this.loadIssuesFromServer();
     this.getCountOfIssues();
   },
@@ -66,7 +73,6 @@ var Root = React.createClass({
   handleIssueClickEvent: function (number) {
     if (this.state.abridged) {
       this.setState({
-        abridged: !this.state.abridged,
         issueNumber: number
       }, this.getIssueFromServer);
     }
@@ -85,7 +91,7 @@ var Root = React.createClass({
     }
     
     else {
-      content = <Issue issue={this.state.issueData} />;
+      content = <Issue issue={this.state.issueData} comments={this.state.comments}/>;
     }
 
     return (
