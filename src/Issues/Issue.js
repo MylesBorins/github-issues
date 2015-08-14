@@ -33,7 +33,7 @@ var Title = React.createClass({
   }
 });
 
-var Issue = React.createClass({
+var Content = React.createClass({
   prepareContent: function (content) {
     var sliced = content.slice(0, 139);
     if (content !== sliced) {
@@ -43,10 +43,23 @@ var Issue = React.createClass({
   },
   render: function () {
     return (
+      <div className='content'>
+        <Title url={this.props.url} title={this.props.title}/>
+        {this.prepareContent(this.props.children)}
+      </div>
+    );
+  }
+});
+
+var Issue = React.createClass({
+  render: function () {
+    return (
       <div className='issue'>
         <TopBar issueURL={this.props.issueURL} issueNumber={this.props.issueNumber}/>
         <UserData avatarURL={this.props.user.avatar_url} userURL={this.props.user.html_url} username={this.props.user.login} />
-        <Title url={this.props.url} title={this.props.title}/>
+        <Content url={this.props.url} title={this.props.title}>
+          {this.props.children}
+        </Content>
       </div>
     );
   }
