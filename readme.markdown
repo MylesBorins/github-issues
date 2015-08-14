@@ -23,7 +23,9 @@ ecstatic serving dist/ at http://0.0.0.0:8000
 
 * build project
 * uglify and gzip js
-* start Ecstatic (with gzip support enabled)
+  * only 58k!
+* minified css
+* starts Ecstatic (with gzip support enabled)
   * Server is running on port 8000
 
 
@@ -68,6 +70,8 @@ This project uses the node module husky to wire some git hooks with npm scripts.
 * I have gotten most of the requirements done from the PDF document. One glaring missing piece is that I did not implement that "@user" highlighting. NPM has so man y false positives right now using @ for scoped modules the entire thing overwhelmed me a bit to manage in this pass.
 
 * I think I could work on the naming and separation of my components a bit
+
+* I did not do any specific accessibility support on the site which would have been awesome had I a bit more time. It looks like there are some really good building blocks for keyboard based interaction in react.
 
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
