@@ -1,7 +1,7 @@
 var React = require('react');
 
 var IssueList = require('./IssueList');
-var github = require('./github');
+var github = require('../github');
 
 var Issues = React.createClass({
   loadIssuesFromServer: function (page) {
