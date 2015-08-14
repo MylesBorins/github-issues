@@ -42,7 +42,7 @@ There currently no tests written for the React components. I am quite sure this 
 
 ##Git Hooks
 
-This project uses the node module husky to wire some git hooks with npm scripts. In order to commit the code must lint, in order to push the code must pass the entire test suite.
+This project uses the node module husky to wire some git hooks with npm scripts. In order to commit the code must lint, in order to push the code must lint. This will catch all sorts of silly errors early :D.
 
 ####Notes 
 * The seed of this project was heavily inspired by https://github.com/substack/react-starter
