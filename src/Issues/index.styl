@@ -1,45 +1,43 @@
-.issueBox
+.issueList
   padding: 25px
+  width: 70%
+  min-width: 600px
+  centerHorizontal()
   
-  .issueList
-    width: 70%
-    min-width: 600px
-    centerHorizontal()
+  .issue
+    position: relative
+    margin-bottom: 15px
+    padding: 15px
     
-    .issue
-      position: relative
-      margin-bottom: 15px
-      padding: 15px
+    .topbar
+      padding: 10px
+      background-color: #000000
       
-      .topbar
-        padding: 10px
-        background-color: #000000
-        
-        a
-          color: #ffffff
+      a
+        color: #ffffff
+    
+    .avatar
+      height: 75px
+      width: 75px
+      position: absolute
+      top: -5px
+      border-radius: 20px
+      right: 0
+      z-index: 2
+    
+    .username
+      position: absolute
+      right: 90px
+      top: 25px
       
-      .avatar
-        height: 75px
-        width: 75px
-        position: absolute
-        top: -5px
-        border-radius: 20px
-        right: 0
-        z-index: 2
-      
-      .username
-        position: absolute
-        right: 90px
-        top: 25px
-        
-        a
-          color: white;
-      
-      .content
-        padding: 25px
-        margin-bottom: 0px
-        outline-width: 1px
-        outline-style: double
-        width: 98%
-        z-index: 1
-        centerHorizontal()
+      a
+        color: white;
+    
+    .content
+      padding: 25px
+      margin-bottom: 0px
+      outline-width: 1px
+      outline-style: double
+      width: 98%
+      z-index: 1
+      centerHorizontal()

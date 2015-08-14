@@ -35,10 +35,14 @@ var Title = React.createClass({
 
 var Content = React.createClass({
   prepareContent: function (content) {
+    // freaking NAIVE
     var sliced = content.slice(0, 139);
     if (content !== sliced) {
       sliced += '...';
     }
+    // TODO 
+    //  finish word gracefully
+    //  turn @username into link
     return <a href={this.props.url}>{sliced}</a>;
   },
   render: function () {
@@ -64,21 +68,5 @@ var Issue = React.createClass({
     );
   }
 });
-// <div className='issue'>
-//   <div className='top'>
-//     <img className='avatar' src={this.props.user.avatar_url + '&s=100'} alt={'avatar of ' + this.props.user.login} ></img>
-
-//     <h2 className='title'>
-//       <a href={this.props.url}># {this.props.issueNumber} {this.props.title}</a>
-//     </h2>
-//
-//   </div>
-//   <div className='content'>
-//     {this.prepareContent(this.props.children)}
-//   </div>
-// </div>
-//          <h2 className='issueNumber'>
-//            <a href={this.props.issueURL}># {this.props.issueNumber}</a>
-//          </h2>
 
 module.exports = Issue;
