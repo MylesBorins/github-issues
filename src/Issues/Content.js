@@ -13,14 +13,14 @@ var Title = React.createClass({
 var Content = React.createClass({
   prepareContent: function (content) {
     // freaking NAIVE
-    var sliced = content.slice(0, 139);
-    if (content !== sliced) {
-      sliced += '...';
+    var sliceTo = content.indexOf(' ', 140);
+    if (sliceTo !== -1) {
+      content = content.slice(0, sliceTo);
     }
     // TODO 
     //  finish word gracefully
     //  turn @username into link
-    return <a href={this.props.url}>{sliced}</a>;
+    return <a href={this.props.url}>{content}</a>;
   },
   render: function () {
     var labelNodes = this.props.labels.map(function (label, i) {
