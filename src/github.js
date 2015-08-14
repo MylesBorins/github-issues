@@ -8,6 +8,18 @@ var base = 'https://api.github.com/';
 var secret = 'client_id=1a445357674dfc8794ea&client_secret=38271a3721193772948f670549c6e91e327ac353';
 var paginationProps = '&state=open&per_page=25&page=';
 
+function issue(project, issueNumber, cb) {
+  xhr({
+    url: path.join(base, 'repos', project, 'issues', issueNumber + '?' + secret),
+    json: true
+  }, function (err, res) {
+    if (err) {
+      return cb(err);
+    }
+    return cb(null, res.body);
+  });
+}
+
 function issues(project, page, cb) {
   if (typeof page === 'function') {
     cb = page;
@@ -44,5 +56,6 @@ function issuePages(project, cb) {
 
 module.exports = {
   issues: issues,
+  issue: issue,
   issuePages: issuePages
 };

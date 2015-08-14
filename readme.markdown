@@ -63,6 +63,8 @@ This project uses the node module husky to wire some git hooks with npm scripts.
 
 * Flash at begining... yuk
 
+* I'm finding the way I'm handling event propagation to be really gross... THERE HAS TO BE A BETTER WAY
+
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
 [use-tape]: http://ponyfoo.com/articles/testing-javascript-modules-with-tape "Testing JavaScript Modules with Tape"

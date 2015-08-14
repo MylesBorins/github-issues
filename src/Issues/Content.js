@@ -4,7 +4,7 @@ var Title = React.createClass({
   render: function () {
     return (
       <h2 className='title'>
-        <a href={this.props.url}>{this.props.title}</a>
+        <a onClick={this.props.onClickEvent} href={this.props.url}>{this.props.title}</a>
       </h2>
     );
   }
@@ -19,8 +19,10 @@ var Content = React.createClass({
       if (sliceTo !== -1) {
         content = content.slice(0, sliceTo);
       }
+      content = <a onClick={this.props.onClickEvent} href={this.props.url}>{content}</a>;
     }
-    return <a href={this.props.url}>{content}</a>;
+
+    return content;
   },
   render: function () {
     var labelNodes = this.props.labels.map(function (label, i) {
@@ -33,7 +35,7 @@ var Content = React.createClass({
     });
     return (
       <div className='content'>
-        <Title url={this.props.url} title={this.props.title}/>
+        <Title onClickEvent={this.props.onClickEvent} url={this.props.url} title={this.props.title}/>
         {this.prepareContent(this.props.children)}
         <div className='labels'>
           {labelNodes}
