@@ -5,9 +5,14 @@ var Issue = React.createClass({
     return (
       <div className='issue'>
         <img src={this.props.user.avatar_url + '&s=100'} alt={'avatar of ' + this.props.user.login} className='avatar'></img>
-        <h2 className='issueAuthor'>
-          <a href={this.props.user.html_url}>{'@' + this.props.user.login}</a>
-        </h2>
+        
+        <a href={this.props.user.html_url} className='issueAuthor'>
+          <h4>{'@' + this.props.user.login}</h4>
+        </a>
+        
+        <a href={this.props.url} className='title'>
+          <h2>{this.props.title}</h2>
+        </a>
         {/* this.props.children */}
         
       </div>
