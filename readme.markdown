@@ -58,3 +58,5 @@ This project uses the node module husky to wire some git hooks with npm scripts.
 [xhr]: https://www.npmjs.com/package/xhr "xhr on npmjs.com"
 [smokestack]: https://www.npmjs.com/package/smokestack "smokestack on npmjs.com"
 [use-tape]: http://ponyfoo.com/articles/testing-javascript-modules-with-tape "Testing JavaScript Modules with Tape"
+
+* I currently have hard coded github secrets for an app I created... this is to simplify stuff so i can move forward. to be refactored time permitting

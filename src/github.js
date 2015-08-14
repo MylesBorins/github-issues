@@ -10,7 +10,7 @@ function issues(project, page, cb) {
   }
 
   xhr({
-    url: path.join(base, 'repos', project, 'issues?state=open&per_page=25&page=' + page),
+    url: path.join(base, 'repos', project, 'issues?client_id=1a445357674dfc8794ea&client_secret=38271a3721193772948f670549c6e91e327ac353&state=open&per_page=25&page=' + page),
     json: true
   }, function (err, res) {
     if (err) {
